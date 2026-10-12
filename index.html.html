@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thư viện Mẫu Quảng cáo Sáng tạo 🍡</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff7fb;--card:#fff;--ink:#5b4b6b;--mut:#9a8aa8;--pink:#ffc8dd;--blue:#bde0fe;--mint:#c8f2e0;--lav:#dccbf0;--yel:#fff1b8;--line:#f3e3f0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#2a2433;--card:#372f44;--ink:#f0e6f6;--mut:#b8a8c6;--line:#4a3f59}}
+:root[data-theme=dark]{--bg:#2a2433;--card:#372f44;--ink:#f0e6f6;--mut:#b8a8c6;--line:#4a3f59}
+*{box-sizing:inherit}html,body{height:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Quicksand,'Segoe UI',system-ui,sans-serif;font-weight:500;background-image:radial-gradient(circle at 10% 0,#ffc8dd55,transparent 40%),radial-gradient(circle at 90% 10%,#bde0fe55,transparent 40%)}
+h1,h2,h3,.logo{font-family:'Baloo 2',Quicksand,sans-serif;margin:.3em 0}
+header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--card);border-bottom:3px dotted var(--pink);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.logo{font-size:22px;cursor:pointer;font-weight:700}
+nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+button,.btn{font:inherit;font-weight:700;border:0;border-radius:999px;padding:8px 16px;background:var(--pink);color:#5b3b55;cursor:pointer;transition:.15s}
+button:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 4px 10px #ffc8dd99}
+.b2{background:var(--blue);color:#34506b}.b3{background:var(--mint);color:#2d5a49}.b4{background:var(--yel);color:#6b5a1e}.b5{background:var(--lav);color:#4d3a6b}.nv{background:transparent;color:var(--ink)}.nv.on{background:var(--lav)}
+main{max-width:1050px;margin:0 auto;padding:18px}
+.hero{text-align:center;padding:18px;border-radius:28px;background:linear-gradient(135deg,var(--pink),var(--blue),var(--mint));color:#4d3a5b}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+input,select,textarea{font:inherit;padding:9px 14px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);max-width:100%}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--lav)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border-radius:24px;overflow:hidden;box-shadow:0 6px 18px #cdb4db33;cursor:pointer;transition:.2s;border:2px solid var(--line)}
+.card:hover{transform:translateY(-5px) rotate(-.6deg)}
+.th{height:130px;display:flex;align-items:center;justify-content:center;font-size:56px;overflow:hidden}.th img{width:100%;height:100%;object-fit:cover}
+.big{height:240px;border-radius:24px}
+.pad{padding:12px 14px}.meta{font-size:13px;color:var(--mut);margin-top:3px}
+.box{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:16px;margin:12px 0}
+.pill{display:inline-block;border-radius:999px;padding:2px 11px;font-size:12px;font-weight:700;margin:2px}
+.y{background:var(--yel)}.g{background:var(--mint)}.r{background:var(--pink)}.p{background:var(--lav)}.bl{background:var(--blue)}
+.pill{color:#4d3a5b}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border:0}
+.star{font-size:30px;cursor:pointer;color:#ffd166;user-select:none}
+.empty{text-align:center;padding:40px;color:var(--mut);font-size:18px}
+.f{display:grid;gap:10px;max-width:460px}
+.f label{font-weight:700;font-size:14px}
+.bartrack{background:var(--line);border-radius:99px;height:12px;min-width:120px;flex:1;max-width:260px}.bartrack i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--pink),var(--lav))}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(120px);background:var(--lav);color:#3d2a5b;padding:12px 22px;border-radius:999px;font-weight:700;transition:.3s;z-index:9;box-shadow:0 6px 20px #0003;max-width:92%}
+#toast.on{transform:translateX(-50%)}
+.chk{display:inline-flex;gap:4px;align-items:center;margin:2px 8px 2px 0;font-weight:500}
+.sm{font-size:13px;padding:5px 12px}
+table{width:100%;border-collapse:collapse}td,th{padding:8px;text-align:left}
+.sc{overflow-x:auto}
+.th svg{width:100%;height:100%;display:block}
+.hx{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center;padding:28px;border-radius:32px;background:linear-gradient(135deg,var(--pink),var(--lav) 55%,var(--blue));color:#4d3a5b;overflow:hidden}
+.hx h1{font-size:clamp(28px,5vw,46px);line-height:1.1}
+.hc{position:relative;height:270px}.hcard{position:absolute;width:62%;border-radius:22px;overflow:hidden;box-shadow:0 12px 30px #5b4b6b44;border:4px solid #fff;cursor:pointer;transition:.3s}.hcard .th{height:150px}.c0{left:0;top:0;transform:rotate(-6deg)}.c1{right:0;top:40px;transform:rotate(5deg)}.c2{left:18%;bottom:0;transform:rotate(-1deg)}.hcard:hover{transform:scale(1.06);z-index:3}
+@media(max-width:720px){.hx{grid-template-columns:1fr}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:16px 0}.stat{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:14px;text-align:center}.stat b{display:block;font:700 30px 'Baloo 2',sans-serif;color:#d36b9c}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:12px}
+.rk{font:700 24px 'Baloo 2',sans-serif;width:34px;color:#d36b9c}.rt{width:90px;height:56px;border-radius:12px;overflow:hidden;flex:none}.rt .th{height:56px}
+.cta{text-align:center;padding:30px;border-radius:30px;background:linear-gradient(135deg,var(--mint),var(--yel),var(--pink));color:#4d3a5b;margin:24px 0}
+details{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:10px 16px;margin:8px 0}summary{cursor:pointer;font-weight:700}
+footer{text-align:center;color:var(--mut);padding:24px;font-size:13px}
+</style></head><body>
+<header><div class="logo" onclick="home()">🍡 AdLib <span style="color:var(--mut);font-size:14px">nhóm 14</span></div><nav id="nav"></nav></header>
+<main id="app"></main>
+<footer>Made with 💖 · Website Thư viện Mẫu Quảng cáo Sáng tạo · Demo giao diện (dữ liệu lưu trong trình duyệt)</footer>
+<div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');
+const L={banner:'Banner',poster:'Poster',video:'Video ads',social:'Social ads'},ST={pending:['Chờ duyệt','y'],approved:['Đã duyệt','g'],rejected:['Bị từ chối','r']},RL={member:'Thành viên',creator:'Nhà sáng tạo',mod:'Kiểm duyệt viên',admin:'Quản trị viên'};
+const today=()=>new Date().toLocaleDateString('vi-VN');
+function seed(){const d={users:[[1,'Mochi Thành Viên','member@demo.vn','member'],[2,'Bông Sáng Tạo','creator@demo.vn','creator'],[3,'Kẹo Kiểm Duyệt','mod@demo.vn','mod'],[4,'Mây Quản Trị','admin@demo.vn','admin']].map(x=>({id:x[0],name:x[1],email:x[2],pw:'123',role:x[3],locked:0})),
+cats:['Thời trang','Ẩm thực','Công nghệ','Mỹ phẩm','Du lịch','Thể thao','Giáo dục'].map((n,i)=>({id:i+1,name:n})),
+tags:[['Tối giản','style'],['Hoạt hình','style'],['Retro','style'],['Hồng','color'],['Xanh mint','color'],['Vàng','color']].map((x,i)=>({id:i+1,name:x[0],kind:x[1]})),
+ads:[['Banner Flash Sale Kẹo Ngọt','Mẫu banner khuyến mãi bố cục lớn, nút CTA nổi bật, hợp mọi ngành hàng','banner',1,[2,4],'',340],['Poster Giải Chạy Mùa Hè','Mẫu poster sự kiện thể thao phong cách retro, chữ lớn dễ đọc','poster',6,[3,6],'👟',45],['Story Ra Mắt Sản Phẩm','Mẫu story dọc tối giản giới thiệu sản phẩm mới','social',4,[1,5],'🧴',160],['Video Ads Unboxing 15 giây','Mẫu video ngắn mở hộp, nhịp nhanh cho mạng xã hội','video',3,[2,5],'🎧',200],['Banner Menu Hoạt Hình','Mẫu banner thực đơn nét vẽ hoạt hình vui nhộn','banner',2,[2,4],'🍓',10],['Poster Lookbook Mùa Hè','Mẫu poster bộ sưu tập thời trang (đang chờ duyệt)','poster',1,[3,6],'👗',60],['Social Ads Tint Pastel','Mẫu bài đăng mạng xã hội cho mỹ phẩm (bị từ chối)','social',4,[4],'💄',320],['Poster Khóa Học Online','Mẫu poster tuyển sinh khóa học, bố cục rõ ràng','poster',7,[3,6],'',20],['Carousel Mẹo Công Nghệ','Mẫu carousel nhiều trang chia sẻ mẹo, màu pastel','social',3,[2,4],'',280],['Banner Tour Cuối Tuần','Mẫu banner du lịch tối giản, ảnh lớn, giá nổi bật','banner',5,[1,5],'',190]].map((x,i)=>({id:i+1,title:x[0],desc:x[1],type:x[2],cat:x[3],tags:x[4],e:x[5],h:x[6],owner:2,status:i==5?'pending':i==6?'rejected':'approved',reason:i==6?'Hình ảnh chưa rõ nét, vui lòng cập nhật':'',views:10*i+5,img:'',date:today()})),
+comments:[{id:1,ad:1,u:1,t:'Màu đáng yêu quá! 😍',d:today()},{id:2,ad:2,u:1,t:'Thích phong cách retro này ghê',d:today()}],ratings:[{ad:1,u:1,s:5},{ad:2,u:1,s:4}],saves:[{ad:1,u:1}],nid:100};return d}
+let DB,me=null,view={n:'home'},F={q:'',cat:'',style:'',color:'',type:'',sort:'new'};
+try{DB=JSON.parse(localStorage.getItem('adlib14d'))}catch(e){}
+if(!DB||!DB.users)DB=seed();
+const save=()=>{try{localStorage.setItem('adlib14d',JSON.stringify(DB))}catch(e){}};
+const A=id=>DB.ads.find(a=>a.id==id),U=id=>DB.users.find(u=>u.id==id)||{name:'(đã xóa)'},nid=()=>++DB.nid;
+const avg=id=>{const r=DB.ratings.filter(x=>x.ad==id);return r.length?r.reduce((s,x)=>s+x.s,0)/r.length:0},ns=id=>DB.saves.filter(x=>x.ad==id).length;
+const cn=id=>(DB.cats.find(c=>c.id==id)||{name:'?'}).name,tg=id=>(DB.tags.find(t=>t.id==id)||{name:'?'}).name;
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+const go=(n,id)=>{view={n,id};R();scrollTo(0,0)};
+const home=()=>go(me&&me.role=='mod'?'mod':me&&me.role=='admin'?'accts':'home');
+const need=()=>{if(me)return 1;view.back=view.n=='detail'?view.id:0;toast('Hãy đăng nhập trước nhé 🔑');go('login');return 0};
+const msg=(t,b)=>`<div class="empty">${t}<br><br>${b?`<button onclick="home()">← Quay lại</button>`:''}</div>`;
+const th=(a,c='')=>`<div class="th ${c}">${a.img?`<img src="${a.img}" alt="">`:art(a)}</div>`;
+function art(a){const h=a.h,r=n=>((a.id*37+n*53)%100)/100,c=(o,l)=>`hsl(${(h+o)%360} 90% ${l}%)`,w=a.title.split(' '),m=Math.ceil(w.length/2),t1=esc(w.slice(0,m).join(' ')),t2=esc(w.slice(m).join(' ')),ty=a.type,ff='font-family="Baloo 2,Quicksand,sans-serif" font-weight="700"';
+let s=`<svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g${a.id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c(0,88)}"/><stop offset="1" stop-color="${c(60,80)}"/></linearGradient></defs><rect width="300" height="180" fill="url(#g${a.id})"/><circle cx="${r(1)*300}" cy="${r(2)*100}" r="${50+r(3)*40}" fill="${c(300,94)}" opacity=".7"/><circle cx="${r(4)*300}" cy="${100+r(5)*80}" r="${30+r(6)*40}" fill="${c(180,90)}" opacity=".55"/><circle cx="${r(7)*300}" cy="${r(8)*180}" r="14" fill="#fff" opacity=".8"/>`;
+if(ty=='video')s+=`<circle cx="235" cy="90" r="30" fill="#fff" opacity=".92"/><path d="M227 74v32l26-16z" fill="${c(0,60)}"/>`;
+else if(ty=='social')s+=`<rect x="205" y="18" width="78" height="144" rx="14" fill="#fff" opacity=".92"/><rect x="213" y="30" width="62" height="62" rx="8" fill="${c(30,80)}"/><rect x="213" y="102" width="46" height="7" rx="3" fill="${c(0,70)}"/><rect x="213" y="116" width="34" height="7" rx="3" fill="${c(0,85)}"/>`;
+else if(ty=='poster')s+=`<g transform="rotate(5 236 90)"><rect x="190" y="14" width="92" height="152" rx="8" fill="#fff" opacity=".9"/><rect x="200" y="26" width="72" height="74" rx="6" fill="${c(40,78)}"/><rect x="200" y="112" width="52" height="8" rx="4" fill="${c(0,65)}"/></g>`;
+else s+=`<rect x="170" y="40" width="120" height="100" rx="14" fill="#fff" opacity=".9"/><rect x="182" y="54" width="60" height="9" rx="4" fill="${c(0,65)}"/><rect x="182" y="72" width="96" height="6" rx="3" fill="${c(0,82)}"/><rect x="182" y="106" width="52" height="20" rx="10" fill="${c(300,75)}"/>`;
+s+=`<text x="16" y="${t2?72:90}" ${ff} font-size="22" fill="${c(0,28)}">${t1}</text>`;if(t2)s+=`<text x="16" y="98" ${ff} font-size="22" fill="${c(0,28)}">${t2}</text>`;
+return s+`<rect x="16" y="120" width="66" height="20" rx="10" fill="${c(0,35)}"/><text x="49" y="134" text-anchor="middle" font-size="10" font-weight="700" fill="#fff" font-family="Quicksand,sans-serif">${L[ty]}</text></svg>`}
+const stars=n=>'★'.repeat(Math.round(n))+'☆'.repeat(5-Math.round(n));
+const card=a=>`<div class="card" onclick="openAd(${a.id})">${th(a)}<div class="pad"><b>${esc(a.title)}</b><div class="meta">${cn(a.cat)} · ${L[a.type]}</div><div class="meta">★ ${avg(a.id).toFixed(1)} · 👁 ${a.views} · 💖 ${ns(a.id)}</div></div></div>`;
+function nav(){const it=[];const m=me?me.role:'';
+if(!me||m=='member'||m=='creator')it.push(['home','Trang chủ'],['lib','Thư viện'],['trend','Xu hướng'],['creators','Nhà sáng tạo'],['about','Giới thiệu']);
+if(m=='member'||m=='creator')it.push(['fav','💖 Yêu thích']);
+if(m=='creator')it.push(['mine','🎨 Mẫu của tôi'],['stats','📊 Thống kê']);
+if(m=='mod')it.push(['mod','✅ Kiểm duyệt'],['cats','🏷️ Danh mục/Thẻ'],['cmts','💬 Bình luận']);
+if(m=='admin')it.push(['accts','👥 Tài khoản']);
+let h=it.map(x=>`<button class="nv ${view.n==x[0]?'on':''}" onclick="go('${x[0]}')">${x[1]}</button>`).join('');
+h+=me?`<span class="pill p">${esc(me.name)} · ${RL[me.role]}</span><button class="sm b4" onclick="logout()">Đăng xuất</button>`:`<button class="sm b2" onclick="go('login')">Đăng nhập</button><button class="sm" onclick="go('reg')">Đăng ký</button>`;return h}
+function R(){$('#nav').innerHTML=nav();$('#app').innerHTML=V[view.n]();save()}
+const V={};
+V.lib=()=>{const op=(l,k)=>l.map(x=>`<option value="${x.id}" ${F[k]==x.id?'selected':''}>${esc(x.name)}</option>`).join('');
+let l=DB.ads.filter(a=>a.status=='approved');const q=F.q.toLowerCase();
+if(q)l=l.filter(a=>(a.title+a.desc+a.tags.map(tg).join(' ')).toLowerCase().includes(q));
+if(F.cat)l=l.filter(a=>a.cat==F.cat);if(F.style)l=l.filter(a=>a.tags.includes(+F.style));if(F.color)l=l.filter(a=>a.tags.includes(+F.color));if(F.type)l=l.filter(a=>a.type==F.type);
+l.sort((a,b)=>F.sort=='view'?b.views-a.views:F.sort=='star'?avg(b.id)-avg(a.id):F.sort=='save'?ns(b.id)-ns(a.id):b.id-a.id);
+return `<div class="hero"><h1>🌈 Thư viện mẫu quảng cáo sáng tạo</h1><div>Tìm cảm hứng banner, poster, video & social ads thật xinh ✨</div></div>
+<div class="bar"><input id="q" placeholder="🔍 Nhập từ khóa..." value="${esc(F.q)}" onkeydown="if(event.key=='Enter')search()"><button onclick="search()">Tìm</button>
+<select onchange="F.cat=this.value;R()"><option value="">Ngành hàng</option>${op(DB.cats,'cat')}</select>
+<select onchange="F.style=this.value;R()"><option value="">Phong cách</option>${op(DB.tags.filter(t=>t.kind=='style'),'style')}</select>
+<select onchange="F.color=this.value;R()"><option value="">Màu sắc</option>${op(DB.tags.filter(t=>t.kind=='color'),'color')}</select>
+<select onchange="F.type=this.value;R()"><option value="">Loại quảng cáo</option>${Object.keys(L).map(k=>`<option value="${k}" ${F.type==k?'selected':''}>${L[k]}</option>`).join('')}</select>
+<select onchange="F.sort=this.value;R()">${[['new','Mới nhất'],['view','Xem nhiều'],['star','Đánh giá cao'],['save','Lưu nhiều']].map(x=>`<option value="${x[0]}" ${F.sort==x[0]?'selected':''}>${x[1]}</option>`).join('')}</select>
+<button class="b4" onclick="F={q:'',cat:'',style:'',color:'',type:'',sort:'new'};R()">Xóa lọc</button></div>
+${l.length?`<div class="grid">${l.map(card).join('')}</div>`:'<div class="empty">Không tìm thấy mẫu phù hợp 🥺</div>'}`};
+const hs=()=>{F.q=$('#hq').value;go('lib')};
+V.home=()=>{const ap=DB.ads.filter(a=>a.status=='approved'),top=[...ap].sort((a,b)=>b.views-a.views).slice(0,4),nw=[...ap].sort((a,b)=>b.id-a.id).slice(0,4),cr=DB.users.filter(u=>u.role=='creator').length,tv=DB.ads.reduce((s,a)=>s+a.views,0);
+return `<section class="hx"><div><span class="pill y">Banner · Poster · Video · Social ads</span><h1>Cảm hứng quảng cáo<br>rực rỡ như kẹo ngọt</h1><p>Kho mẫu quảng cáo được kiểm duyệt kỹ. Tìm, lưu, đánh giá và đăng tải mẫu của riêng bạn.</p><div class="bar"><input id="hq" placeholder="Bạn muốn tìm mẫu gì nè?" onkeydown="if(event.key=='Enter')hs()"><button onclick="hs()">Khám phá ngay</button></div></div><div class="hc">${top.slice(0,3).map((a,i)=>`<div class="hcard c${i}" onclick="openAd(${a.id})">${th(a)}</div>`).join('')}</div></section>
+<div class="stats">${[[ap.length,'Mẫu đã duyệt'],[cr,'Nhà sáng tạo'],[tv,'Lượt xem'],[DB.saves.length,'Lượt lưu']].map(x=>`<div class="stat"><b>${x[0]}</b><span>${x[1]}</span></div>`).join('')}</div>
+<h2>Khám phá theo ngành hàng</h2><div class="chips">${DB.cats.map((c,i)=>`<button class="${['','b2','b3','b4','b5'][i%5]}" onclick="F.cat=${c.id};go('lib')">${esc(c.name)}</button>`).join('')}</div>
+<h2>Được xem nhiều nhất</h2><div class="grid">${top.map(card).join('')}</div>
+<h2>Mới lên sàn</h2><div class="grid">${nw.map(card).join('')}</div>
+<h2>Cách hoạt động</h2><div class="grid">${[['1','Tìm mẫu','Lọc theo ngành hàng, phong cách, màu sắc và loại quảng cáo.'],['2','Lưu & đánh giá','Lưu mẫu ưng ý vào bộ sưu tập, chấm sao và bình luận.'],['3','Đăng tải','Nhà sáng tạo gửi mẫu, kiểm duyệt viên duyệt rồi công khai.']].map(x=>`<div class="box"><div class="rk">${x[0]}</div><h3>${x[1]}</h3><div class="meta">${x[2]}</div></div>`).join('')}</div>
+<div class="cta"><h2>Sẵn sàng tỏa sáng cùng AdLib?</h2><button onclick="go('${me?'lib':'reg'}')">${me?'Vào thư viện':'Tạo tài khoản miễn phí'}</button></div>`};
+V.trend=()=>{const ap=DB.ads.filter(a=>a.status=='approved'),bx=(t,k,f)=>`<div class="box"><h3>${t}</h3>${[...ap].sort(k).slice(0,5).map((a,i)=>`<div class="row" style="cursor:pointer" onclick="openAd(${a.id})"><div class="rk">${i+1}</div><div class="rt">${th(a)}</div><div style="flex:1"><b>${esc(a.title)}</b><div class="meta">${cn(a.cat)}</div></div><span class="pill p">${f(a)}</span></div>`).join('')}</div>`;
+return `<h2>Xu hướng</h2><div class="two">${bx('Xem nhiều nhất',(a,b)=>b.views-a.views,a=>a.views+' lượt xem')}${bx('Đánh giá cao nhất',(a,b)=>avg(b.id)-avg(a.id),a=>avg(a.id).toFixed(1)+' sao')}${bx('Được lưu nhiều',(a,b)=>ns(b.id)-ns(a.id),a=>ns(a.id)+' lượt lưu')}</div>`};
+V.creators=()=>`<h2>Nhà sáng tạo</h2>`+(DB.users.filter(u=>u.role=='creator').map(u=>{const l=DB.ads.filter(a=>a.owner==u.id&&a.status=='approved');return `<div class="box"><div class="row"><h3>${esc(u.name)}</h3><span class="pill g">${l.length} mẫu · ${l.reduce((s,a)=>s+a.views,0)} lượt xem</span></div>${l.length?`<div class="grid">${l.map(card).join('')}</div>`:'<div class="meta">Chưa có mẫu được duyệt</div>'}</div>`}).join('')||'<div class="empty">Chưa có nhà sáng tạo nào</div>');
+V.about=()=>`<div class="hero"><h1>Giới thiệu AdLib</h1><div>Website Thư viện Mẫu Quảng cáo Sáng tạo · Nhóm 14</div></div><h2>Ai làm được gì?</h2><div class="grid">${[['Thành viên','Tìm kiếm, xem chi tiết, lưu yêu thích, bình luận, đánh giá.'],['Nhà sáng tạo','Có quyền của Thành viên, thêm đăng tải, sửa, xóa mẫu và xem thống kê.'],['Kiểm duyệt viên','Duyệt hoặc từ chối mẫu, quản lý danh mục/thẻ, xóa bình luận vi phạm.'],['Quản trị viên','Khóa/mở khóa và phân quyền tài khoản.']].map(x=>`<div class="box"><h3>${x[0]}</h3><div class="meta">${x[1]}</div></div>`).join('')}</div><h2>Câu hỏi thường gặp</h2>${[['Mẫu của tôi bao giờ được hiển thị?','Sau khi Kiểm duyệt viên duyệt. Bạn theo dõi trạng thái ở mục Mẫu của tôi.'],['Vì sao mẫu bị từ chối?','Kiểm duyệt viên sẽ ghi lý do để bạn chỉnh sửa và gửi lại.'],['Làm sao trở thành Nhà sáng tạo?','Quản trị viên sẽ phân quyền cho tài khoản của bạn.'],['Dữ liệu lưu ở đâu?','Bản demo lưu ngay trong trình duyệt của bạn.']].map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}`;
+const search=()=>{F.q=$('#q').value;R()};
+function openAd(id){const a=A(id);if(a&&a.status=='approved')a.views++;go('detail',id)}
+V.detail=()=>{const a=A(view.id);if(!a)return msg('Không tìm thấy mẫu 🥲',1);
+if(a.status!='approved'&&!(me&&(me.id==a.owner||me.role=='mod')))return msg('Bạn không có quyền xem mẫu này 🔒',1);
+const mine=me&&DB.ratings.find(r=>r.ad==a.id&&r.u==me.id),saved=me&&DB.saves.find(s=>s.ad==a.id&&s.u==me.id),cm=DB.comments.filter(c=>c.ad==a.id),rel=DB.ads.filter(x=>x.id!=a.id&&x.status=='approved'&&(x.cat==a.cat||x.tags.some(t=>a.tags.includes(t)))).slice(0,4);
+return `<button class="b2 sm" onclick="${me&&me.role=='mod'&&a.status!='approved'?"go('mod')":"go('home')"}">← Quay lại</button>
+<div class="box">${th(a,'big')}<h2>${esc(a.title)} <span class="pill ${ST[a.status][1]}">${ST[a.status][0]}</span></h2><p>${esc(a.desc)}</p>
+<div><span class="pill bl">${cn(a.cat)}</span><span class="pill p">${L[a.type]}</span>${a.tags.map(t=>`<span class="pill y">#${esc(tg(t))}</span>`).join('')}</div>
+<div class="meta">Đăng bởi ${esc(U(a.owner).name)} · ${a.date} · 👁 ${a.views} · 💖 ${ns(a.id)}</div>
+<div style="margin-top:10px"><button onclick="toggleSave(${a.id})">${saved?'💖 Đã lưu (bỏ lưu)':'🤍 Lưu vào yêu thích'}</button>
+${me&&me.role=='mod'&&a.status=='pending'?`<button class="b3" onclick="approve(${a.id})">✅ Duyệt</button><button class="b4" onclick="reject(${a.id})">❌ Từ chối</button>`:''}</div></div>
+${a.status=='approved'?`<div class="box"><h3>⭐ Đánh giá: ${avg(a.id).toFixed(1)} / 5 <span class="meta">(${DB.ratings.filter(r=>r.ad==a.id).length} lượt)</span></h3>
+<div>${[1,2,3,4,5].map(i=>`<span class="star" onclick="rate(${a.id},${i})">${mine&&i<=mine.s?'★':'☆'}</span>`).join('')}<span class="meta"> ${mine?'Bạn chấm '+mine.s+' sao (bấm để sửa)':'Bấm sao để chấm điểm'}</span></div></div>
+<div class="box"><h3>💬 Bình luận (${cm.length})</h3>${cm.map(c=>`<div class="row"><div><b>${esc(U(c.u).name)}</b> <span class="meta">${c.d}</span><br>${esc(c.t)}</div>${me&&me.id==c.u?`<div><button class="sm b2" onclick="editCmt(${c.id})">Sửa</button> <button class="sm b4" onclick="delCmt(${c.id})">Xóa</button></div>`:''}</div>`).join('')||'<div class="meta">Chưa có bình luận nào</div>'}
+<div class="bar"><input id="ct" placeholder="Viết bình luận..." style="flex:1;min-width:200px" onfocus="need()"><button onclick="addCmt(${a.id})">Gửi 💌</button></div></div>
+<h3>🎀 Mẫu liên quan</h3>${rel.length?`<div class="grid">${rel.map(card).join('')}</div>`:'<div class="meta">Chưa có mẫu liên quan</div>'}`:''}`};
+function toggleSave(id){if(!need())return;const i=DB.saves.findIndex(s=>s.ad==id&&s.u==me.id);if(i<0){DB.saves.push({ad:id,u:me.id});toast('Đã lưu vào bộ sưu tập 💖')}else{DB.saves.splice(i,1);toast('Đã bỏ lưu')}R()}
+function rate(id,s){if(!need())return;const r=DB.ratings.find(x=>x.ad==id&&x.u==me.id);r?r.s=s:DB.ratings.push({ad:id,u:me.id,s});toast('Cảm ơn bạn đã đánh giá ⭐');R()}
+function addCmt(id){if(!need())return;const t=$('#ct').value.trim();if(!t)return toast('Vui lòng nhập nội dung');DB.comments.push({id:nid(),ad:id,u:me.id,t,d:today()});toast('Đã gửi bình luận 💌');R()}
+function editCmt(id){const c=DB.comments.find(x=>x.id==id),t=prompt('Sửa bình luận:',c.t);if(t===null)return;if(!t.trim())return toast('Vui lòng nhập nội dung');c.t=t.trim();toast('Đã cập nhật');R()}
+function delCmt(id){if(!confirm('Xóa bình luận này?'))return;DB.comments=DB.comments.filter(c=>c.id!=id);toast('Đã xóa bình luận');R()}
+V.fav=()=>{if(!me)return msg('Hãy đăng nhập để xem bộ sưu tập 🔑');const l=DB.saves.filter(s=>s.u==me.id).map(s=>A(s.ad)).filter(a=>a&&a.status=='approved');return `<h2>💖 Bộ sưu tập yêu thích</h2>${l.length?`<div class="grid">${l.map(card).join('')}</div>`:'<div class="empty">Bạn chưa lưu mẫu nào 🍬</div>'}`};
+V.login=()=>`<div class="box"><h2>🔑 Đăng nhập</h2><div class="f"><label>Email</label><input id="em" value="${esc(view.em||'')}"><label>Mật khẩu</label><input id="pw" type="password" onkeydown="if(event.key=='Enter')login()"><button onclick="login()">Đăng nhập</button>
+<div class="meta">Tài khoản demo (mật khẩu 123): bấm để điền nhanh</div><div>${DB.users.map(u=>`<button class="sm b5" style="margin:2px" onclick="$('#em').value='${u.email}';$('#pw').value='123'">${RL[u.role]}</button>`).join('')}</div></div></div>`;
+function login(){const u=DB.users.find(x=>x.email==$('#em').value.trim()&&x.pw==$('#pw').value);if(!u)return toast('Sai email hoặc mật khẩu 😢');if(u.locked)return toast('Tài khoản đã bị khóa 🔒');me=u;toast('Chào '+u.name+' 🎉');const b=view.back;b?openAd(b):home()}
+function logout(){me=null;toast('Hẹn gặp lại nhé 👋');go('home')}
+V.reg=()=>`<div class="box"><h2>🌸 Đăng ký</h2><div class="f"><label>Họ tên</label><input id="rn"><label>Email</label><input id="re"><label>Mật khẩu (từ 3 ký tự)</label><input id="rp" type="password"><button onclick="reg()">Tạo tài khoản</button></div></div>`;
+function reg(){const n=$('#rn').value.trim(),e=$('#re').value.trim(),p=$('#rp').value;if(!n||!/^\S+@\S+\.\S+$/.test(e)||p.length<3)return toast('Thông tin thiếu hoặc sai định dạng');if(DB.users.some(u=>u.email==e))return toast('Email đã được sử dụng, hãy nhập email khác');DB.users.push({id:nid(),name:n,email:e,pw:p,role:'member',locked:0});toast('Đăng ký thành công! Hãy đăng nhập 🎀');view.em=e;go('login')}
+V.mine=()=>{if(!me||me.role!='creator')return msg('Chỉ Nhà sáng tạo mới xem được trang này');const l=DB.ads.filter(a=>a.owner==me.id);
+return `<div class="row"><h2>🎨 Mẫu của tôi</h2><button onclick="go('form')">➕ Đăng tải mẫu</button></div>${l.length?l.map(a=>`<div class="box row"><div><b>${esc(a.title)}</b> <span class="pill ${ST[a.status][1]}">${ST[a.status][0]}</span><div class="meta">${cn(a.cat)} · ${L[a.type]}${a.reason?' · Lý do từ chối: '+esc(a.reason):''}</div></div><div><button class="sm b2" onclick="go('form',${a.id})">Chỉnh sửa</button> <button class="sm b4" onclick="delAd(${a.id})">Xóa</button></div></div>`).join(''):'<div class="empty">Bạn chưa đăng mẫu nào 🌱</div>'}`};
+V.form=()=>{if(!me||me.role!='creator')return msg('Chỉ Nhà sáng tạo mới đăng được mẫu');const a=view.id?A(view.id):{title:'',desc:'',type:'banner',cat:DB.cats[0]?DB.cats[0].id:'',tags:[]};
+return `<div class="box"><h2>${view.id?'✏️ Chỉnh sửa':'➕ Đăng tải'} mẫu quảng cáo</h2><div class="f"><label>Tên mẫu</label><input id="ft" value="${esc(a.title)}"><label>Mô tả</label><textarea id="fd" rows="3">${esc(a.desc)}</textarea>
+<label>Loại quảng cáo</label><select id="fy">${Object.keys(L).map(k=>`<option value="${k}" ${a.type==k?'selected':''}>${L[k]}</option>`).join('')}</select>
+<label>Danh mục (ngành hàng)</label><select id="fc">${DB.cats.map(c=>`<option value="${c.id}" ${a.cat==c.id?'selected':''}>${esc(c.name)}</option>`).join('')}</select>
+<label>Thẻ (tag)</label><div>${DB.tags.map(t=>`<label class="chk"><input type="checkbox" name="tg" value="${t.id}" ${a.tags.includes(t.id)?'checked':''}>${esc(t.name)}</label>`).join('')}</div>
+<label>Tệp mẫu (ảnh hoặc video) ${view.id?'— bỏ trống để giữ tệp cũ':''}</label><input id="ff" type="file" accept="image/*,video/*">
+<div><button onclick="saveAd()">Gửi mẫu 🚀</button> <button class="b4" onclick="go('mine')">Hủy</button></div></div></div>`};
+function saveAd(){const t=$('#ft').value.trim(),d=$('#fd').value.trim(),f=$('#ff').files[0],tags=[...document.querySelectorAll('[name=tg]:checked')].map(x=>+x.value),ed=view.id?A(view.id):null;
+if(!t||!d||!DB.cats.length||(!ed&&!f))return toast('Thiếu thông tin bắt buộc (tên, mô tả, tệp)');
+if(f&&!/^(image|video)\//.test(f.type))return toast('Tệp không hợp lệ, hãy chọn ảnh hoặc video');
+const fin=img=>{const o={title:t,desc:d,type:$('#fy').value,cat:+$('#fc').value,tags,status:'pending',reason:''};if(img!==undefined)o.img=img;
+if(ed)Object.assign(ed,o);else{const h=Math.floor(Math.random()*360);DB.ads.push(Object.assign({id:nid(),owner:me.id,e:'🎀',h,views:0,img:'',date:today()},o))}
+toast(ed?'Đã lưu, mẫu chờ duyệt lại ⏳':'Đăng tải thành công, đang chờ kiểm duyệt ⏳');go('mine')};
+if(f&&f.type.startsWith('image/')&&f.size<400000){const r=new FileReader();r.onload=()=>fin(r.result);r.readAsDataURL(f)}else fin(f?'':undefined)}
+function delAd(id){if(!confirm('Bạn chắc chắn muốn xóa mẫu này?'))return;DB.ads=DB.ads.filter(a=>a.id!=id);DB.saves=DB.saves.filter(s=>s.ad!=id);DB.comments=DB.comments.filter(c=>c.ad!=id);DB.ratings=DB.ratings.filter(r=>r.ad!=id);toast('Đã xóa mẫu');R()}
+V.stats=()=>{if(!me||me.role!='creator')return msg('Chỉ Nhà sáng tạo mới xem được thống kê');const l=DB.ads.filter(a=>a.owner==me.id),mx=Math.max(1,...l.map(a=>a.views));
+return `<h2>📊 Thống kê mẫu của tôi</h2>${l.length?`<div class="box sc"><table><tr><th>Mẫu</th><th>👁 Lượt xem</th><th></th><th>💖 Lượt lưu</th></tr>${l.map(a=>`<tr><td>${esc(a.title)}</td><td>${a.views}</td><td><div class="bartrack"><i style="width:${a.views/mx*100}%"></i></div></td><td>${ns(a.id)}</td></tr>`).join('')}</table></div>`:'<div class="empty">Chưa có dữ liệu thống kê 🌥️</div>'}`};
+V.mod=()=>{if(!me||me.role!='mod')return msg('Chỉ Kiểm duyệt viên mới vào được đây');const l=DB.ads.filter(a=>a.status=='pending');
+return `<h2>✅ Mẫu chờ kiểm duyệt</h2>${l.length?`<div class="grid">${l.map(card).join('')}</div><div class="meta" style="margin-top:8px">Bấm vào mẫu để xem chi tiết rồi Duyệt / Từ chối</div>`:'<div class="empty">Không có mẫu chờ duyệt 🎉</div>'}`};
+function approve(id){A(id).status='approved';A(id).reason='';toast('Đã duyệt & công khai mẫu ✅');go('mod')}
+function reject(id){const r=prompt('Nhập lý do từ chối:');if(r===null)return;if(!r.trim())return toast('Cần nhập lý do từ chối');A(id).status='rejected';A(id).reason=r.trim();toast('Đã từ chối mẫu, thông báo cho nhà sáng tạo');go('mod')}
+V.cats=()=>{if(!me||me.role!='mod')return msg('Chỉ Kiểm duyệt viên mới vào được đây');
+return `<h2>🏷️ Danh mục (ngành hàng)</h2><div class="box">${DB.cats.map(c=>`<div class="row"><span>${esc(c.name)} <span class="meta">(${DB.ads.filter(a=>a.cat==c.id).length} mẫu)</span></span><div><button class="sm b2" onclick="editC(${c.id})">Sửa</button> <button class="sm b4" onclick="delC(${c.id})">Xóa</button></div></div>`).join('')}
+<div class="bar"><input id="nc" placeholder="Tên danh mục mới"><button onclick="addC()">Thêm</button></div></div>
+<h2>🎀 Thẻ (phong cách / màu sắc)</h2><div class="box">${DB.tags.map(t=>`<div class="row"><span>${esc(t.name)} <span class="pill ${t.kind=='style'?'bl':'g'}">${t.kind=='style'?'phong cách':'màu sắc'}</span></span><div><button class="sm b2" onclick="editT(${t.id})">Sửa</button> <button class="sm b4" onclick="delT(${t.id})">Xóa</button></div></div>`).join('')}
+<div class="bar"><input id="nt" placeholder="Tên thẻ mới"><select id="nk"><option value="style">Phong cách</option><option value="color">Màu sắc</option></select><button onclick="addT()">Thêm</button></div></div>`};
+const dup=(l,n,id)=>l.some(x=>x.name.toLowerCase()==n.toLowerCase()&&x.id!=id);
+function addC(){const n=$('#nc').value.trim();if(!n)return toast('Hãy nhập tên');if(dup(DB.cats,n))return toast('Tên danh mục đã tồn tại');DB.cats.push({id:nid(),name:n});toast('Đã thêm danh mục 🌷');R()}
+function editC(id){const c=DB.cats.find(x=>x.id==id),n=prompt('Tên mới:',c.name);if(n===null)return;if(!n.trim()||dup(DB.cats,n.trim(),id))return toast('Tên trống hoặc đã tồn tại');c.name=n.trim();toast('Đã cập nhật');R()}
+function delC(id){const u=DB.ads.filter(a=>a.cat==id).length;if(!confirm(u?`Danh mục đang dùng bởi ${u} mẫu. Vẫn xóa?`:'Xóa danh mục này?'))return;DB.cats=DB.cats.filter(c=>c.id!=id);DB.ads.forEach(a=>{if(a.cat==id)a.cat=DB.cats[0]?DB.cats[0].id:0});toast('Đã xóa danh mục');R()}
+function addT(){const n=$('#nt').value.trim();if(!n)return toast('Hãy nhập tên');if(dup(DB.tags,n))return toast('Tên thẻ đã tồn tại');DB.tags.push({id:nid(),name:n,kind:$('#nk').value});toast('Đã thêm thẻ 🎀');R()}
+function editT(id){const c=DB.tags.find(x=>x.id==id),n=prompt('Tên mới:',c.name);if(n===null)return;if(!n.trim()||dup(DB.tags,n.trim(),id))return toast('Tên trống hoặc đã tồn tại');c.name=n.trim();toast('Đã cập nhật');R()}
+function delT(id){const u=DB.ads.filter(a=>a.tags.includes(id)).length;if(!confirm(u?`Thẻ đang dùng bởi ${u} mẫu. Vẫn xóa?`:'Xóa thẻ này?'))return;DB.tags=DB.tags.filter(t=>t.id!=id);DB.ads.forEach(a=>a.tags=a.tags.filter(t=>t!=id));toast('Đã xóa thẻ');R()}
+V.cmts=()=>{if(!me||me.role!='mod')return msg('Chỉ Kiểm duyệt viên mới vào được đây');
+return `<h2>💬 Quản lý bình luận</h2><div class="box">${DB.comments.map(c=>`<div class="row"><div><b>${esc(U(c.u).name)}</b> <span class="meta">trên “${esc((A(c.ad)||{title:'?'}).title)}” · ${c.d}</span><br>${esc(c.t)}</div><button class="sm b4" onclick="delCmt(${c.id})">Xóa vi phạm</button></div>`).join('')||'<div class="empty">Chưa có bình luận 🍃</div>'}</div>`};
+V.accts=()=>{if(!me||me.role!='admin')return msg('Chỉ Quản trị viên mới vào được đây');
+return `<h2>👥 Quản lý tài khoản</h2><div class="box">${DB.users.map(u=>`<div class="row"><div><b>${esc(u.name)}</b> <span class="pill ${u.locked?'r':'g'}">${u.locked?'Bị khóa':'Hoạt động'}</span><div class="meta">${esc(u.email)}</div></div>
+<div><select onchange="setRole(${u.id},this.value)">${['member','creator','mod'].map(r=>`<option value="${r}" ${u.role==r?'selected':''}>${RL[r]}</option>`).join('')}${u.role=='admin'?`<option selected>${RL.admin}</option>`:''}</select> <button class="sm ${u.locked?'b3':'b4'}" onclick="lock(${u.id})">${u.locked?'Mở khóa':'Khóa'}</button></div></div>`).join('')}</div>`};
+function lock(id){const u=U(id);if(id==me.id)return toast('Không thể khóa chính tài khoản đang đăng nhập 🙅');if(!confirm((u.locked?'Mở khóa':'Khóa')+' tài khoản này?'))return;u.locked=u.locked?0:1;toast('Đã cập nhật trạng thái tài khoản');R()}
+function setRole(id,r){const u=U(id);if(u.role=='admin'||id==me.id){toast('Không thể đổi quyền tài khoản này');return R()}if(!confirm('Đổi vai trò thành '+RL[r]+'?'))return R();u.role=r;toast('Đã phân quyền ✅');R()}
+R();
+</script></body></html>
